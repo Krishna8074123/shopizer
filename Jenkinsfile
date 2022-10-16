@@ -1,16 +1,16 @@
 pipeline{
     agent any
     triggers{
-        cron(' * * * * * ')
+        cron('* * * * *')
     }
     stages{
-        stage ('git shopizer'){
+        stage ( 'git shopizer' ) {
             steps{
                 git url: 'https://github.com/Krishna8074123/shopizer.git',
-                branch: 'master'
+                branch: 'Develop'
             }
         }
-        stage ('package'){
+        stage ( 'package' ) {
             steps{
                 sh 'mvn package'
             }
