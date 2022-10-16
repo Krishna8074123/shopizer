@@ -1,7 +1,7 @@
 pipeline{
     agent any
     triggers{
-        cron('* * * * *')
+        cron('* */18 * * *')
     }
     stages{
         stage ( 'git shopizer' ) {
