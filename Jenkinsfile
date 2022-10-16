@@ -1,18 +1,16 @@
 pipeline{
     agent any
-    triggers{
-        cron('* * * * *')
-    }
-    stages{
+    triggers { pollSCM ('* * * * *') }
+      stages{
         stage ( 'git shopizer' ) {
-            steps{
+            steps {
                 git url: 'https://github.com/Krishna8074123/shopizer.git',
                 branch: 'Develop'
             }
         }
         stage ( 'package' ) {
-            steps{
-                sh 'mvn package'
+            steps {
+                sh 'mvn clean install'
             }
         }
     }
